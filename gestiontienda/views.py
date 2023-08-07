@@ -66,6 +66,11 @@ def eliminarProducto(request,idProducto):
     productoEliminar.delete()
     return HttpResponseRedirect(reverse('gestiontienda:registroProducto'))
 
+def eliminarProductoTienda(request,idProducto):
+    productoEliminar= producto.objects.get(id=idProducto)
+    productoEliminar.delete()
+    return HttpResponseRedirect(reverse('gestiontienda:registroTienda'))
+
 def eliminarTienda(request,idTienda):
     tiendaEliminar= tienda.objects.get(id=idTienda)
     tiendaEliminar.delete()

@@ -35,7 +35,8 @@
                             <th>Descripcion</th>
                             <th>Codigo</th>
                             <th>Precio venta</th>
-                            <th>cantidad</th>                                              
+                            <th>cantidad</th>
+                            <th text-align="center">Eliminar producto</th>                                                 
                         </thead>
                         <tbody>
                             {% for infoproducto  in infoproductosTiendas %}
@@ -44,6 +45,7 @@
                                 <td>{{infoproducto.codigo}}</td>
                                 <td>{{infoproducto.precioVenta}}</td>
                                 <td>{{infoproducto.cantidad}}</td>    
+                                <td class="text-center"><a class="btn btn-danger" href="{% url 'gestiontienda:eliminarProductoTienda' infoproducto.id %}"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                             {%endfor%}
                         </tbody>

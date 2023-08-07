@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Primer template de Django</title>
+        <link rel="stylesheet" href="{% static '/index.css' %}">
+    </head>
+    <body>
+        <h1>Mi primer proyecto en django</h1>
+        <form method="post" action="{% url 'gestiontienda:registroTienda' %}">
+            {% csrf_token %}
+            <div>
+                <label>Ingrese su direccion</label>
+                <input type="text" name="tiendaDireccion">
+            </div>
+            <div>
+                <label id="nombreInfo">Ingrese su provincia</label>
+                <input type="text" name="tiendaProvincia">
+            </div>
+            <div>
+                <label id="nombreInfo">Ingrese su region</label>
+                <input type="text" name="tiendaRegion">
+            </div>
+            <div>
+                <label id="nombreInfo">Ingrese su fecha de creacion</label>
+                <input type="date" name="tiendaFechaCreacion">
+            </div>
+            <div>
+                <label id="nombreInfo">Ingrese su Telefono</label>
+                <input type="text" name="tiendaTelefonoContacto">
+            </div>
+            <div>
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+        <div>
+            <h2>Usuarios de la aplicacion</h2>
+            {% for tiendas in listaUsuarios %}
+            <div>
+                <h5>Direccion : {{ tiendas.direccion }}</h5>
+                <h5>Provincia : {{ tiendas.provincia }}</h5>                
+                <h5>Region : {{ tiendas.region }}</h5>
+                <h5>FechaCreacion : {{ tiendas.fechaCreacion }}</h5>
+                <h5>Telefono de contacto : {{ tiendas.telefonoContacto }}</h5>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
